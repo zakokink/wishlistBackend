@@ -1,17 +1,19 @@
-from django.shortcuts import render
-from datetime import datetime
-from django.shortcuts import render,HttpResponse
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
 from .models import Wishlist, Category, Currency
 from rest_framework import generics, permissions
 from .serializers import WishlistSerializer, CategorySerializer, CurrencySerializer
-
 
 class WishListCreate(generics.ListCreateAPIView):
     queryset = Wishlist.objects.all().order_by('priority')
     serializer_class = WishlistSerializer
 
+class WishListCreateByUser(generics.ListCreateAPIView):
+    serializer_class = WishlistSerializer
+    def get(self, request, *args, **kwargs):
+        userId = kwargs.get('userId')
+        queryset = Wishlist.objects.filter(user__id = userId).order_by('priority')
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(data={"status": 200, "data": serializer.data})
 
 class WishListEdit(generics.RetrieveUpdateDestroyAPIView):
     queryset = Wishlist.objects.all()
