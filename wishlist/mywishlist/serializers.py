@@ -29,7 +29,7 @@ class WishlistSerializer(serializers.ModelSerializer):
         return CurrencySerializer(wishlist.currency, many=False, read_only=False).data
 
     def get_user(self, wishlist):
-        return UserSerializer(wishlist.currency, many=False, read_only=False).data
+        return UserSerializer(wishlist.user, many=False, read_only=False).data
 
     class Meta:
         model = Wishlist
