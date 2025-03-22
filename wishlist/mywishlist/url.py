@@ -7,5 +7,4 @@ urlpatterns = [
     path('wishlist/<int:pk>', views.WishListEdit.as_view(), name="wishlist-edit"),
     path('categories', views.CategoryCreate.as_view(), name="category-view-create"),
     path('currencies', views.CurrencyCreate.as_view(), name="category-view-create"),
-
 ]
