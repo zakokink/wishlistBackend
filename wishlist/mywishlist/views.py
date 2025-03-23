@@ -7,10 +7,6 @@ class WishListCreate(generics.ListCreateAPIView):
     queryset = Wishlist.objects.all().order_by('priority')
     serializer_class = WishlistSerializer
 
-class WishListCreate(generics.ListCreateAPIView):
-    queryset = Wishlist.objects.all().order_by('priority')
-    serializer_class = WishlistSerializer
-
 class WishListCreateByUser(generics.ListCreateAPIView):
     serializer_class = WishlistSerializer
     def get_queryset(self):
