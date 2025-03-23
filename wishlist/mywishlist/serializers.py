@@ -36,3 +36,23 @@ class WishlistSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class PostWishlistSerializer(serializers.ModelSerializer):
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
+    currency = serializers.PrimaryKeyRelatedField(queryset=Currency.objects.all())
+    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+
+    def get_category(self, wishlist):
+        return CategorySerializer(wishlist.category, many=False, read_only=False).data
+
+    def get_currency(self, wishlist):
+        return CurrencySerializer(wishlist.currency, many=False, read_only=False).data
+
+    def get_user(self, wishlist):
+        return UserSerializer(wishlist.user, many=False, read_only=False).data
+
+    class Meta:
+        model = Wishlist
+        fields = "__all__"
+
+
+

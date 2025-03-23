@@ -1,11 +1,16 @@
 from rest_framework.response import Response
 from .models import Wishlist, Category, Currency
 from rest_framework import generics, permissions
-from .serializers import WishlistSerializer, CategorySerializer, CurrencySerializer
+from .serializers import WishlistSerializer, CategorySerializer, CurrencySerializer, PostWishlistSerializer
+
+
+class WishListView(generics.ListCreateAPIView):
+    queryset = Wishlist.objects.all().order_by('priority')
+    serializer_class = WishlistSerializer
 
 class WishListCreate(generics.ListCreateAPIView):
     queryset = Wishlist.objects.all().order_by('priority')
-    serializer_class = WishlistSerializer
+    serializer_class = PostWishlistSerializer
 
 class WishListCreateByUser(generics.ListCreateAPIView):
     serializer_class = WishlistSerializer

@@ -20,9 +20,9 @@ class User(models.Model):
 class Wishlist(models.Model):
     name = models.CharField(max_length=500)
     price = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
-    currency = models.ForeignKey(Currency, default=1, on_delete=models.PROTECT, null=True, blank=True)
+    currency = models.ForeignKey(Currency, default=1, on_delete=models.PROTECT)
     priority = models.IntegerField(null=True, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True, blank=True)
+    category = models.ForeignKey(Category, default=1, on_delete=models.PROTECT)
     active = models.BooleanField(default=True, null=True, blank=True)
     completed = models.BooleanField(default=False, null=True, blank=True)
     creationDate = models.DateField(default=date.today, null=True, blank=True)
