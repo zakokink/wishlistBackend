@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7a282fe-9125-4c12-a56b-062a7bb165b3" name="Changes" comment="fehler ausbessern">
+    <list default="true" id="d7a282fe-9125-4c12-a56b-062a7bb165b3" name="Changes" comment="delete methode implementieren">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wishlist/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wishlist/mywishlist/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/wishlist/mywishlist/url.py" afterDir="false" />
@@ -140,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742757189436</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="delete methode implementieren">
+      <option name="closed" value="true" />
+      <created>1742758110037</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742758110037</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +168,7 @@
     <MESSAGE value="User impl" />
     <MESSAGE value="sql" />
     <MESSAGE value="fehler ausbessern" />
-    <option name="LAST_COMMIT_MESSAGE" value="fehler ausbessern" />
+    <MESSAGE value="delete methode implementieren" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete methode implementieren" />
   </component>
 </project>

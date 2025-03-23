@@ -29,7 +29,7 @@ class WishListEdit(generics.UpdateAPIView):
     serializer_class = PostWishlistSerializer
     lookup_field = "pk"
 
-class WishListEdit(generics.DestroyAPIView):
+class WishListDelete(generics.DestroyAPIView):
     queryset = Wishlist.objects.all()
     lookup_field = "pk"
 
