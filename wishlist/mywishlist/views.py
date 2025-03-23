@@ -1,7 +1,8 @@
 from rest_framework.response import Response
-from .models import Wishlist, Category, Currency
+from .models import Wishlist, Category, Currency, User
 from rest_framework import generics, permissions
-from .serializers import WishlistSerializer, CategorySerializer, CurrencySerializer, PostWishlistSerializer
+from .serializers import WishlistSerializer, CategorySerializer, CurrencySerializer, PostWishlistSerializer, \
+    UserSerializer
 
 
 class WishListView(generics.ListCreateAPIView):
@@ -18,10 +19,22 @@ class WishListCreateByUser(generics.ListCreateAPIView):
         userId = self.kwargs.get('userId')
         return Wishlist.objects.filter(user__id=userId).order_by('priority')
 
-class WishListEdit(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Wishlist.objects.all()
-    serializer_class = WishlistSerializer
+class UserEdit(generics.UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
     lookup_field = "pk"
+
+class WishListEdit(generics.UpdateAPIView):
+    queryset = Wishlist.objects.all()
+    serializer_class = PostWishlistSerializer
+    lookup_field = "pk"
+
+
+
+
+class UserView(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 class CategoryCreate(generics.ListCreateAPIView):
     queryset = Category.objects.all()
