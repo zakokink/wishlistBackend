@@ -29,7 +29,9 @@ class WishListEdit(generics.UpdateAPIView):
     serializer_class = PostWishlistSerializer
     lookup_field = "pk"
 
-
+class WishListEdit(generics.DestroyAPIView):
+    queryset = Wishlist.objects.all()
+    lookup_field = "pk"
 
 
 class UserView(generics.ListCreateAPIView):
